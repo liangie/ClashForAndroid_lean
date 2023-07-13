@@ -148,6 +148,22 @@
                     android:onClick="@{() -> self.request(Request.OpenAbout)}"
                     app:icon="@drawable/ic_baseline_info"
                     app:text="@string/about" />
+
+
+                <com.github.kr328.clash.design.view.CircleProgressBar
+                    android:id="@+id/circlePB"
+                    android:layout_width="196dp"
+                    android:layout_height="196dp"
+                    android:layout_centerInParent="true"
+                    app:progress_text_color="#00000000"
+                    app:drawBackgroundOutsideProgress="false"
+                    app:progress_background_color="#00000000"
+                    app:progress_end_color="#46D4D6"
+                    app:progress_start_color="#46D4D6"
+                    app:progress_start_degree="-90"
+                    app:progress_stroke_cap="round"
+                    app:progress_stroke_width="10dp"
+                    app:progress_style="solid_line" />
             </LinearLayout>
         </ScrollView>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -18,6 +18,7 @@ gradle-app.setting
 
 # Ignore IDEA config
 *.iml
+.idea/
 /.idea/*
 !/.idea/codeStyles
 /core/src/main/golang/.idea/*

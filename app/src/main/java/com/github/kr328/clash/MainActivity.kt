@@ -31,6 +31,8 @@ class MainActivity : BaseActivity<MainDesign>() {
 
         val ticker = ticker(TimeUnit.SECONDS.toMillis(1))
 
+        design.setProgressValue(50)
+
         while (isActive) {
             select<Unit> {
                 events.onReceive {
@@ -43,6 +45,7 @@ class MainActivity : BaseActivity<MainDesign>() {
                     }
                 }
                 design.requests.onReceive {
+
                     when (it) {
                         MainDesign.Request.ToggleStatus -> {
                             if (clashRunning)

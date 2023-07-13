@@ -12,7 +12,12 @@ import com.github.kr328.clash.design.util.resolveThemedColor
 import com.github.kr328.clash.design.util.root
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.Timer
+import java.util.TimerTask
+import kotlin.math.max
 
 class MainDesign(context: Context) : Design<MainDesign.Request>(context) {
     enum class Request {
@@ -87,6 +92,19 @@ class MainDesign(context: Context) : Design<MainDesign.Request>(context) {
                 .setPositiveButton(R.string.ok) { _, _ -> }
                 .show()
         }
+    }
+
+    var progressValue = 1
+    suspend fun setProgressValue(value:Int){
+        val timer = Timer().schedule(object: TimerTask(){
+            override fun run() {
+                MainScope().launch {
+                    progressValue = max(1, (progressValue + 1)%100)
+                    binding.circlePB.progress = progressValue
+                }
+            }
+
+        }, 0,25)
     }
 
     init {

@@ -152,6 +152,8 @@
             android:exported="false"
             android:label="@string/files" />
 
+
+
         <service
             android:name=".LogcatService"
             android:exported="false"
