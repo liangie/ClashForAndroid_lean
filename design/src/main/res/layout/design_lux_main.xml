@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="self"
+            type="com.lux.design.LuxMainDesign" />
+        <variable
+            name="clashRunning"
+            type="boolean" />
+        <variable
+            name="forwarded"
+            type="String" />
+        <variable
+            name="mode"
+            type="String" />
+        <variable
+            name="profileName"
+            type="String" />
+        <variable
+            name="colorClashStarted"
+            type="int" />
+        <variable
+            name="colorClashStopped"
+            type="int" />
+        <variable
+            name="hasProviders"
+            type="boolean" />
+
+        <import type="android.view.View" />
+        <import type="com.lux.design.LuxMainDesign.Request" />
+    </data>
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerRoot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="@{self.surface.insets.start}"
+            android:paddingEnd="@{self.surface.insets.end}">
+
+            <LinearLayout
+                android:id="@+id/lyToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@android:color/transparent"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <ImageView
+                    android:id="@+id/ivStart"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_centerInParent="true"
+                    android:background="@android:color/transparent"
+                    android:onClick="@{()->self.request(Request.DrawerAction)}"
+                    android:padding="16dp"
+                    android:src="@drawable/master_ic_more" />
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/bold"
+                    android:gravity="center"
+                    android:paddingEnd="56dp"
+                    android:text="@string/application_name"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+            <FrameLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="196dp"
+                android:layout_height="196dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="64dp"
+                android:onClick="@{()->self.request(Request.ConnectAction)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lyToolbar">
+
+                <View
+                    android:layout_width="156dp"
+                    android:layout_height="156dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/master_drw_main_bg_3" />
+
+                <com.github.kr328.clash.design.view.CircleProgressBar
+                    android:id="@+id/circlePB"
+                    android:layout_width="196dp"
+                    android:layout_height="196dp"
+                    android:layout_centerInParent="true"
+                    app:drawBackgroundOutsideProgress="true"
+                    app:progress_background_color="#FF0000"
+                    app:progress_end_color="#46D4D6"
+                    app:progress_start_color="#46D4D6"
+                    app:progress_start_degree="-90"
+                    app:progress_stroke_cap="round"
+                    app:progress_stroke_width="10dp"
+                    app:progress_style="solid_line"
+                    app:progress_text_color="#00000000" />
+                <ImageView
+                    android:id="@+id/ivConnection"
+                    android:layout_width="78dp"
+                    android:layout_height="78dp"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_connection" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/master_ic_tap_connect"
+                android:ellipsize="end"
+                android:fontFamily="@font/normal"
+                android:gravity="center"
+                android:paddingBottom="6dp"
+                android:singleLine="true"
+                android:text="@string/lux_tap_connection"
+                android:textColor="@color/text_white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/frameLayout"
+                app:layout_constraintEnd_toEndOf="@+id/frameLayout"
+                app:layout_constraintStart_toStartOf="@+id/frameLayout" />
+
+
+            <TextView
+                android:id="@+id/tv_channel_info_title"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginHorizontal="28dp"
+                android:layout_marginTop="46dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_gray_round_28"
+                android:drawableStart="@drawable/ic_smart_mode"
+                android:drawableEnd="@drawable/ic_arrow_to_end"
+                android:drawablePadding="12dp"
+                android:paddingHorizontal="21dp"
+                android:fontFamily="@font/bold"
+                android:gravity="center"
+                android:textColor="@color/text_black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+                tools:text="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" />
+
+            <include
+                layout="@layout/layout_connection_map_nodes"
+                android:layout_width="232dp"
+                android:layout_height="113dp"
+                android:layout_marginTop="28dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_channel_info_title" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+                <com.github.kr328.clash.design.view.LargeActionCard
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/main_card_margin_vertical"
+                    android:onClick="@{() -> self.request(Request.DrawerAction)}"
+                    android:theme="@style/AppThemeDark"
+                    app:cardBackgroundColor="@{clashRunning ? colorClashStarted : colorClashStopped}"
+                    app:icon="@{clashRunning ? @drawable/ic_outline_check_circle : @drawable/ic_outline_not_interested}"
+                    app:subtext="@{clashRunning ? @string/format_traffic_forwarded(forwarded) : @string/tap_to_start}"
+                    app:text="@{clashRunning ? @string/running : @string/stopped}" />
+
+                <com.github.kr328.clash.design.view.LargeActionCard
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/main_card_margin_vertical"
+                    android:onClick="@{() -> self.request(Request.OpenProxy)}"
+                    android:visibility="@{clashRunning ? View.VISIBLE : View.GONE}"
+                    app:icon="@drawable/ic_baseline_apps"
+                    app:subtext="@{mode}"
+                    app:text="@string/proxy" />
+
+                <com.github.kr328.clash.design.view.LargeActionCard
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/main_card_margin_vertical"
+                    android:onClick="@{() -> self.request(Request.OpenProfiles)}"
+                    app:icon="@drawable/ic_baseline_view_list"
+                    app:subtext="@{profileName != null ? @string/format_profile_activated(profileName) : @string/not_selected}"
+                    app:text="@string/profile" />
+
+                <com.github.kr328.clash.design.view.LargeActionLabel
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginVertical="@dimen/main_label_margin_vertical"
+                    android:onClick="@{() -> self.request(Request.OpenProviders)}"
+                    android:visibility="@{clashRunning &amp;&amp; hasProviders ? View.VISIBLE : View.GONE}"
+                    app:icon="@drawable/ic_baseline_swap_vertical_circle"
+                    app:text="@string/providers" />
+
+                <com.github.kr328.clash.design.view.LargeActionLabel
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/main_label_margin_vertical"
+                    android:onClick="@{() -> self.request(Request.OpenLogs)}"
+                    app:icon="@drawable/ic_baseline_assignment"
+                    app:text="@string/logs" />
+
+                <com.github.kr328.clash.design.view.LargeActionLabel
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/main_label_margin_vertical"
+                    android:onClick="@{() -> self.request(Request.OpenSettings)}"
+                    app:icon="@drawable/ic_baseline_settings"
+                    app:text="@string/settings" />
+
+                <com.github.kr328.clash.design.view.LargeActionLabel
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/main_label_margin_vertical"
+                    android:onClick="@{() -> self.request(Request.OpenHelp)}"
+                    app:icon="@drawable/ic_baseline_help_center"
+                    app:text="@string/help" />
+
+                <com.github.kr328.clash.design.view.LargeActionLabel
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/main_label_margin_vertical"
+                    android:onClick="@{() -> self.request(Request.OpenAbout)}"
+                    app:icon="@drawable/ic_baseline_info"
+                    app:text="@string/about" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <include
+            layout="@layout/layout_main_drawer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start" />
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>

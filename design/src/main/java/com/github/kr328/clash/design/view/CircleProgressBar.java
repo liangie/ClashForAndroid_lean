@@ -250,33 +250,6 @@ public class CircleProgressBar extends View {
         }
     }
 
-
-//    private void drawInnerLineProgress(Canvas canvas) {
-//        float unitDegrees = (float)(6.283185307179586 / (double)this.mLineCount);
-//        float outerCircleRadius = this.mRadius;
-//        float interCircleRadius = this.mRadius - this.mLineWidth;
-//        int progressLineCount = (int)((float)this.mProgress / (float)this.mMax * (float)this.mLineCount);
-//
-//        for(int i = 0; i < this.mLineCount; ++i) {
-//            float rotateDegrees = (float)i * -unitDegrees;
-//            float startX = this.mCenterX + (float)Math.cos((double)rotateDegrees) * interCircleRadius;
-//            float startY = this.mCenterY - (float)Math.sin((double)rotateDegrees) * interCircleRadius;
-//            float stopX = this.mCenterX + (float)Math.cos((double)rotateDegrees) * outerCircleRadius;
-//            float stopY = this.mCenterY - (float)Math.sin((double)rotateDegrees) * outerCircleRadius;
-//            if (this.mDrawBackgroundOutsideProgress) {
-//                if (i >= progressLineCount) {
-//                    canvas.drawLine(startX, startY, stopX, stopY, this.mProgressBackgroundPaint);
-//                }
-//            } else {
-//                canvas.drawLine(startX, startY, stopX, stopY, this.mProgressBackgroundPaint);
-//            }
-//
-//            if (i < progressLineCount) {
-//                canvas.drawLine(startX, startY, stopX, stopY, this.mProgressPaint);
-//            }
-//        }
-//    }
-
     private void drawSolidProgress(Canvas canvas) {
         if (this.mDrawBackgroundOutsideProgress) {
             float startAngle = 360.0F * (float) this.mProgress / (float) this.mMax;
@@ -290,19 +263,34 @@ public class CircleProgressBar extends View {
     }
 
     private void drawSolidLineProgress(Canvas canvas) {
-        if (this.mDrawBackgroundOutsideProgress) {
-            float startAngle = 360.0F * (float) this.mProgress / (float) this.mMax;
-            float sweepAngle = 360.0F - startAngle;
-            canvas.drawArc(this.mProgressRectF, startAngle, sweepAngle, false, this.mProgressBackgroundPaint);
-        } else {
-            canvas.drawArc(this.mProgressRectF, 0.0F, 360.0F, false, this.mProgressBackgroundPaint);
-        }
+//        if (this.mDrawBackgroundOutsideProgress) {
+//            float startAngle = 360.0F * (float) this.mProgress / (float) this.mMax;
+//            float sweepAngle = 360.0F - startAngle;
+//            canvas.drawArc(this.mProgressRectF, startAngle, sweepAngle, false, this.mProgressBackgroundPaint);
+//        } else {
+//            canvas.drawArc(this.mProgressRectF, 0.0F, 360.0F, false, this.mProgressBackgroundPaint);
+//        }
+        this.mProgressBackgroundPaint.setColor(Color.parseColor("#77e0e0e0"));
+        canvas.drawArc(this.mProgressRectF, 0.0F, 360.0F, false, this.mProgressBackgroundPaint);
+        this.mProgressBackgroundPaint.setColor(Color.parseColor("#FFe0e0e0"));
+        canvas.drawArc(this.mInnerProgressRectF, 0.0F, 360.0F, false, this.mProgressBackgroundPaint);
 
         this.mProgressPaint.setColor(this.mProgressStartColor);
-        canvas.drawArc(this.mProgressRectF, 0.0F, 360.0F * (float) this.mProgress / (float) this.mMax, false, this.mProgressPaint);
+        float angle = 360.F * (float) this.mProgress / (float) this.mMax;
+        if (mProgress>=0){
+            canvas.drawArc(this.mProgressRectF, angle, angle,
+                    false, this.mProgressPaint);
+            mProgressPaint.setColor(Color.parseColor("#44FF0000"));
+            canvas.drawArc(this.mInnerProgressRectF, angle, angle,
+                    false, this.mProgressPaint);
 
-        mProgressPaint.setColor(Color.parseColor("#4446D4D6"));
-        canvas.drawArc(this.mInnerProgressRectF, 0.0F, 360.0F * (float) this.mProgress / (float) this.mMax, false, this.mProgressPaint);
+        }else{
+            canvas.drawArc(this.mProgressRectF, - angle, angle,
+                    false, this.mProgressPaint);
+            mProgressPaint.setColor(Color.parseColor("#44FF0000"));
+            canvas.drawArc(this.mInnerProgressRectF, -angle, angle,
+                    false, this.mProgressPaint);
+        }
 
         this.mProgressPaint.setColor(this.mProgressStartColor);
 

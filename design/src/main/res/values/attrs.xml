@@ -87,4 +87,24 @@
         </attr>
 
     </declare-styleable>
+
+
+
+    <!--  自定义矩形进度条  -->
+    <declare-styleable name="HProgressView">
+        <attr name="progress" format="float" />
+        <!--水平方向边距-->
+        <attr name="h_margin" format="dimension" />
+        <attr name="progress_color" format="color" />
+        <attr name="normal_color" format="color" />
+        <!--  文字属性      -->
+        <attr name="text_des_color" format="color" />
+        <attr name="text_num_color" format="color" />
+        <attr name="text_size" format="dimension" />
+        <!--进度条的纵向宽度-->
+        <attr name="progress_v_width" format="dimension" />
+        <attr name="text_to_progress_margin" format="dimension" />
+        <attr name="with_anim" format="boolean" />
+        <attr name="with_click" format="boolean" />
+    </declare-styleable>
 </resources>

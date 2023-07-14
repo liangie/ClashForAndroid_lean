@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="232dp"
+    android:layout_height="113dp">
+
+    <ImageView
+        android:layout_width="232dp"
+        android:layout_height="113dp"
+        android:src="@drawable/master_ic_main_earth" />
+
+    <ImageView
+        android:id="@+id/ivNorthAmerica"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/ic_connection_node" />
+
+    <ImageView
+        android:id="@+id/ivSouthAmerica"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="26dp"
+        android:src="@drawable/ic_connection_node" />
+
+    <ImageView
+        android:id="@+id/ivAfrica"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="56dp"
+        android:src="@drawable/ic_connection_node" />
+
+    <ImageView
+        android:id="@+id/ivEurope"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="90dp"
+        android:src="@drawable/ic_connection_node" />
+
+    <ImageView
+        android:id="@+id/ivAsia"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="50dp"
+        android:src="@drawable/ic_connection_node" />
+
+
+    <ImageView
+        android:id="@+id/ivOceania"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/ic_connection_node" />
+
+    <ImageView
+        android:id="@+id/ivEarthFree"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_connection_node"
+        android:visibility="visible" />
+</RelativeLayout>

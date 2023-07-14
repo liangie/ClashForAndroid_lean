@@ -10,4 +10,13 @@
     <color name="color_light_control_disabled">#FFD3D3D3</color>
     <color name="color_dark_control_disabled">#FF808080</color>
     <color name="color_error">#FFB00020</color>
+
+    <color name="white">#ffffff</color>
+    <color name="text_white">#ffffff</color>
+    <color name="text_black">#222222</color>
+    <color name="text_gray_dark">#808080</color>
+    <color name="text_gray_light">#ADADAD</color>
+    <color name="page_bg">#FFFFFF</color>
+
+    <color name="color_progress_1">#1BBFCA</color>
 </resources>

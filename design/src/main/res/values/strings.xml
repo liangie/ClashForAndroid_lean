@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="PluralsCandidate">
-    <string name="launch_name">Clash</string>
-    <string name="application_name">Clash for Android</string>
+    <string name="launch_name">#VPN Master</string>
+    <string name="application_name" translatable="false">VPN Master</string>
 
     <string name="stopped">Stopped</string>
     <string name="tap_to_start">Tap to start</string>
@@ -279,4 +279,9 @@
     <string name="version_updated_tips">The settings have been reseted and the old profiles needs to be saved again.</string>
 
     <string name="mode_switch_tips">Valid only for current session</string>
+
+<!-- Lux appends -->
+
+    <string name="lux_tap_connection">Tap to connect</string>
+    <string name="slogon">Safe &amp; Fast VPN. Use VPN Master</string>
 </resources>
